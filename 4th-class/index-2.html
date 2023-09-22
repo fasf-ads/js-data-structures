@@ -1,0 +1,37 @@
+<script>
+		let pao = {
+			pesoEmGramas: 30,
+			nome: "Pao",
+			codigoDeBarras: "123",
+			preco: 18.90 / (1000/30),
+			obs: "Cada pao, no peso",
+			quantiade: 5,
+		};
+
+		let cerveja = {
+			nome: "Original",
+			preco: 11.00,
+			codigoDeBarras: "124",
+			obs: "Garrafa 600",
+			quantiade: 12,
+		};
+
+		let carrinhoDeCompras = [pao, cerveja];
+
+		let total = 0;
+
+		for(let i=0; i < carrinhoDeCompras.length; i++)  {
+			console.log('Produto', carrinhoDeCompras[i].nome);
+			console.log('Quantidade', carrinhoDeCompras[i].quantiade);
+			console.log('Preco unidade', carrinhoDeCompras[i].preco);
+			// Preco do item
+			let precoItem = carrinhoDeCompras[i].quantiade * carrinhoDeCompras[i].preco;
+			console.log("Preco item:", precoItem)
+			total = total + carrinhoDeCompras[i].quantiade * carrinhoDeCompras[i].preco;
+		}
+		console.log("Valor total R$ : ", total);
+		// Preco total
+		//console.log(carrinhoDeCompras);
+
+
+</script>

@@ -1,0 +1,83 @@
+<script>
+		let pao = {
+			pesoEmGramas: 30,
+			nome: "Pao",
+			codigoDeBarras: "123",
+			preco: 18.90 / (1000/30),
+			obs: "Cada pao, no peso",
+			quantidade: 5,
+		};
+
+		let cerveja = {
+			nome: "Original",
+			preco: 11.00,
+			codigoDeBarras: "124",
+			obs: "Garrafa 600",
+			quantidade: 12,
+		};
+
+		let carrinhoDeCompras = [pao, cerveja];
+
+		let total = 0;
+
+		for(let i=0; i < carrinhoDeCompras.length; i++)  {
+			console.log('Produto', carrinhoDeCompras[i].nome);
+			console.log('Quantidade', carrinhoDeCompras[i].quantidade);
+			console.log('Preco unidade', carrinhoDeCompras[i].preco);
+			// Preco do item
+			let precoItem = carrinhoDeCompras[i].quantidade * carrinhoDeCompras[i].preco;
+			console.log("Preco item:", precoItem)
+			total = total + carrinhoDeCompras[i].quantidade * carrinhoDeCompras[i].preco;
+		}
+		// Preco total
+		console.log("Valor total R$ : ", total);
+		// Quantidade total
+		function mostraQtdTotal(carrinhoDeCompras) {
+			let qtdTotal = 0;
+			for(let i=0; i < carrinhoDeCompras.length; i++) {
+				console.log("Estou somando a qtd do produto", carrinhoDeCompras[i].nome);
+				qtdTotal = qtdTotal + carrinhoDeCompras[i].quantidade;
+			}
+			return qtdTotal;
+		}
+
+		console.log(" Quantidade total item ", mostraQtdTotal(carrinhoDeCompras));
+
+		// Create function to show the most expensive product in the cart
+		// Create function to show the item with most items in the cart
+		function mostraProdutoComMaiorNumero(carrinhoDeCompras) {
+			let maiorQuatidade = 0;
+			let nomeMaior = ""; 
+			console.log("mostraProdutoComMaiorNumero foi chamada");
+			for(let i = 0; i <carrinhoDeCompras.length; i++) {
+				console.log('Produto:',  carrinhoDeCompras[i].nome);
+				if(carrinhoDeCompras[i].quantidade > maiorQuatidade) {
+					maiorQuatidade = carrinhoDeCompras[i].quantidade;
+					nomeMaior = carrinhoDeCompras[i].nome;
+				}// if
+			}// for 
+			//console.log(maiorQuatidade, nomeMaior);
+			return  { maiorQuatidade, nomeMaior };
+		}
+
+		console.log("Maior quantidade",mostraProdutoComMaiorNumero(carrinhoDeCompras));
+		// Create function to to tell the return of the payment
+		// Create function to add items to the carrinhoDeCompras.
+		function adiciona(carrinhoDeCompras, nome, codigoDeBarras, quantidade, preco, gramas) {
+			let novoProduto = { nome, codigoDeBarras, quantidade, preco, gramas };
+			//console.log();
+			//console.log(carrinhoDeCompras[0]);
+			//console.log(carrinhoDeCompras[1]);
+			carrinhoDeCompras[carrinhoDeCompras.length] = novoProduto;
+		}
+
+
+		adiciona(carrinhoDeCompras, "Sonho", "23213", 1, 1.50, 200);
+		adiciona(carrinhoDeCompras, "Misto", "23234", 123, 5.50, 350);
+		console.log(carrinhoDeCompras);
+		console.log("Quantidade total final:", mostraQtdTotal(carrinhoDeCompras));
+
+
+
+
+</script>

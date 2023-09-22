@@ -1,0 +1,22 @@
+<script>
+	//https://gist.github.com/mateusfreira
+	function insertSort(numeros, numero) {
+		for(let i=0; i < numeros.length; i++) {
+			if(numeros[i] > numero) {
+				let tmp = numeros[i];
+				numeros[i] = numero;
+				numero = tmp;
+			}
+		}
+		numeros[numeros.length] = numero;
+	}
+
+	let init = [];
+	insertSort(init, 2);
+	insertSort(init, 0);
+	insertSort(init, 3)
+	insertSort(init, -1);
+
+	console.log({ init, desejo: [-1, 0, 2, 3] });
+
+</script>
