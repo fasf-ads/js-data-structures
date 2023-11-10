@@ -32,7 +32,7 @@ class LinkedQueue {
         */
     }
 
-    removeItem(itemToRemove) {
+    removeItem(itemToRemove) {// itemToRemove = mateus
         let queue  = this;
         // Pega o anterior
         let prev = this.head;
